@@ -1,17 +1,29 @@
-# Chrome Extension Starter
+# Daily Notes - Chrome Extension
 
-A modern Chrome extension starter template powered by **Vite**, **Svelte 5**, **TypeScript**, **TailwindCSS**, and **DaisyUI**. This template is designed for rapid development of MV3 (Manifest Version 3) extensions with a focus on performance, modularity, and modern developer tools.
+A beautiful note-taking app that replaces your new tab page, built with Svelte 5, Tailwind CSS, and DaisyUI.
 
 ---
 
 ## ✨ Features
 
-- **[Vite](https://vite.dev/)**: Lightning-fast bundler for modern web development.
-- **[Svelte 5](https://svelte.dev/docs/svelte/what-are-runes)**: Minimalistic framework for building user interfaces.
-- **[TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html)**: Static typing for better code quality and maintainability.
-- **[TailwindCSS](https://tailwindcss.com/docs)**: Utility-first CSS framework for rapid UI development.
-- **[DaisyUI](https://daisyui.com/)**: TailwindCSS-based components for faster styling.
-- **[Chrome Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)**: Secure and powerful API for Chrome extensions.
+- 📝 **Rich Text Editor** - Bold, italic, underline, headings, and lists
+- 🗂️ **Smart Organization** - Daily notes and all notes views
+- 🔍 **Powerful Search** - Search across all your notes with highlighted results
+- 🌙 **Dark/Light Theme** - Beautiful themes that match your preference
+- 💾 **Auto-save** - Your notes are automatically saved as you type
+- ⌨️ **Keyboard Shortcuts** - Quick access to common actions
+- 🔄 **Cross-tab Sync** - Changes sync across all your Chrome tabs
+
+---
+
+## ⌨️ Keyboard Shortcuts
+
+- `Ctrl/Cmd + F` - Open search
+- `Ctrl/Cmd + N` - Create new note
+- `Ctrl/Cmd + B` - Bold (in editor)
+- `Ctrl/Cmd + I` - Italic (in editor)
+- `Ctrl/Cmd + U` - Underline (in editor)
+- `Escape` - Close search
 
 ---
 

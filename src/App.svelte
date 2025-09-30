@@ -1,24 +1,30 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { theme, initializeTheme } from "./lib/stores/theme";
+  import { loadNotesFromStorage, initializeToday } from "./lib/stores/notes";
+  import { setupKeyboardShortcuts } from "./lib/utils/keyboard";
 
-  import ThemeToggle from "./lib/components/ThemeToggle.svelte";
-  import Sidebar from "./lib/components/Sidebar.svelte";
-  import MainContent from "./lib/components/MainContent.svelte";
+  import Header from "./lib/components/Header.svelte";
+  import SearchBar from "./lib/components/SearchBar.svelte";
+  import Navigation from "./lib/components/Navigation.svelte";
+  import NotesList from "./lib/components/NotesList.svelte";
+  import Editor from "./lib/components/Editor.svelte";
 
-  onMount(() => {
+  onMount(async () => {
     initializeTheme();
+    await loadNotesFromStorage();
+    await initializeToday();
+    setupKeyboardShortcuts();
   });
 </script>
 
-<div class="h-screen bg-base-100" data-theme={$theme}>
-  <div class="flex h-full">
-    <Sidebar />
-    <main class="flex-1 p-4">
-      <div class="flex justify-end mb-4">
-        <ThemeToggle />
-      </div>
-      <MainContent />
-    </main>
+<div class="h-screen flex flex-col bg-base-100" data-theme={$theme}>
+  <Header />
+  <SearchBar />
+  <Navigation />
+  
+  <div class="flex flex-1 overflow-hidden">
+    <NotesList />
+    <Editor />
   </div>
 </div>
