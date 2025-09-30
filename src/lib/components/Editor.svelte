@@ -14,9 +14,12 @@
   let editorElement = $state<HTMLDivElement>();
   let titleValue = $state('');
   let wordCount = $state(0);
+  let currentNoteId = $state<string | null>(null);
   
   $effect(() => {
-    if ($currentNote) {
+    if ($currentNote && $currentNote.id !== currentNoteId) {
+      // Only update when switching to a different note
+      currentNoteId = $currentNote.id;
       titleValue = $currentNote.title;
       if (editorElement) {
         editorElement.innerHTML = $currentNote.content;
