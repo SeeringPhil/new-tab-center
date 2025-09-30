@@ -1,6 +1,7 @@
 <script lang="ts">
   import { searchMode, searchNotes, highlightText, formatDateShort, loadNote } from '../stores/notes';
   import { onMount } from 'svelte';
+  import IconX from '~icons/lucide/x';
   
   let searchQuery = $state('');
   let searchResults = $state<ReturnType<typeof searchNotes>>([]);
@@ -51,7 +52,7 @@
         onclick={closeSearch}
         aria-label="Close search"
       >
-        ✕
+        <IconX class="w-4 h-4" />
       </button>
     </div>
     

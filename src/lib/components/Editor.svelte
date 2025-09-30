@@ -1,6 +1,15 @@
 <script lang="ts">
   import { currentNote, updateCurrentNote, scheduleAutoSave, autoSaveStatus, formatDateShort, stripHtml } from '../stores/notes';
   import { onMount } from 'svelte';
+  import IconBold from '~icons/lucide/bold';
+  import IconItalic from '~icons/lucide/italic';
+  import IconUnderline from '~icons/lucide/underline';
+  import IconList from '~icons/lucide/list';
+  import IconListOrdered from '~icons/lucide/list-ordered';
+  import IconHeading1 from '~icons/lucide/heading-1';
+  import IconHeading2 from '~icons/lucide/heading-2';
+  import IconPilcrow from '~icons/lucide/pilcrow';
+  import IconCheck from '~icons/lucide/check';
   
   let editorElement = $state<HTMLDivElement>();
   let titleValue = $state('');
@@ -66,21 +75,21 @@
         onclick={() => execCommand('bold')}
         title="Bold (Ctrl+B)"
       >
-        <b>B</b>
+        <IconBold class="w-4 h-4" />
       </button>
       <button
         class="btn btn-xs btn-ghost"
         onclick={() => execCommand('italic')}
         title="Italic (Ctrl+I)"
       >
-        <i>I</i>
+        <IconItalic class="w-4 h-4" />
       </button>
       <button
         class="btn btn-xs btn-ghost"
         onclick={() => execCommand('underline')}
         title="Underline (Ctrl+U)"
       >
-        <u>U</u>
+        <IconUnderline class="w-4 h-4" />
       </button>
       
       <div class="divider divider-horizontal mx-0"></div>
@@ -90,14 +99,14 @@
         onclick={() => execCommand('insertUnorderedList')}
         title="Bullet List"
       >
-        • List
+        <IconList class="w-4 h-4" />
       </button>
       <button
         class="btn btn-xs btn-ghost"
         onclick={() => execCommand('insertOrderedList')}
         title="Numbered List"
       >
-        1. List
+        <IconListOrdered class="w-4 h-4" />
       </button>
       
       <div class="divider divider-horizontal mx-0"></div>
@@ -107,40 +116,43 @@
         onclick={() => execCommand('formatBlock', 'h1')}
         title="Heading 1"
       >
-        H1
+        <IconHeading1 class="w-4 h-4" />
       </button>
       <button
         class="btn btn-xs btn-ghost"
         onclick={() => execCommand('formatBlock', 'h2')}
         title="Heading 2"
       >
-        H2
+        <IconHeading2 class="w-4 h-4" />
       </button>
       <button
         class="btn btn-xs btn-ghost"
         onclick={() => execCommand('formatBlock', 'p')}
         title="Paragraph"
       >
-        P
+        <IconPilcrow class="w-4 h-4" />
       </button>
     </div>
     
     <!-- Editor Content -->
-    <div class="flex-1 flex flex-col overflow-hidden">
-      <div class="p-6 space-y-4">
-        <!-- Title -->
-        <div class="flex justify-between items-center">
+    <div class="flex-1 flex flex-col overflow-auto">
+      <div class="p-6 space-y-2">
+        <!-- Title and Date -->
+        <div class="flex justify-between items-start gap-4">
           <input
             type="text"
             value={titleValue}
             oninput={handleTitleInput}
             placeholder="Note title..."
-            class="input input-ghost text-2xl font-bold flex-1 focus:outline-none"
+            class="input input-ghost text-2xl font-bold flex-1 focus:outline-none px-0"
           />
-          <span class="text-sm text-base-content/70">
+          <span class="text-sm text-base-content/70 whitespace-nowrap mt-2">
             {formatDateShort($currentNote.date)}
           </span>
         </div>
+        
+        <!-- Divider -->
+        <div class="divider my-2"></div>
         
         <!-- Editor -->
         <div
@@ -156,13 +168,13 @@
     
     <!-- Status Bar -->
     <div class="flex justify-between items-center p-2 border-t border-base-300 bg-base-200 text-sm">
-      <span class="text-base-content/70">
+      <span class="text-base-content/70 flex items-center gap-1">
         {#if $autoSaveStatus === 'saving'}
           <span class="loading loading-spinner loading-xs"></span> Saving...
         {:else if $autoSaveStatus === 'synced'}
-          ✓ Synced
+          <IconCheck class="w-3 h-3" /> Synced
         {:else}
-          ✓ Auto-saved
+          <IconCheck class="w-3 h-3" /> Auto-saved
         {/if}
       </span>
       <span class="text-base-content/70">

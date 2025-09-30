@@ -1,5 +1,6 @@
 <script lang="ts">
   import { viewMode, createNewNote, getTodayKey, loadNote } from '../stores/notes';
+  import IconPlus from '~icons/lucide/plus';
   
   function switchToToday() {
     viewMode.set('today');
@@ -35,6 +36,7 @@
     class="btn btn-sm btn-primary gap-1"
     onclick={handleNewNote}
   >
-    + New Note
+    <IconPlus class="w-4 h-4" />
+    New Note
   </button>
 </nav>

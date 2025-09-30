@@ -6,13 +6,13 @@ A beautiful note-taking app that replaces your new tab page, built with Svelte 5
 
 ## ✨ Features
 
-- 📝 **Rich Text Editor** - Bold, italic, underline, headings, and lists
-- 🗂️ **Smart Organization** - Daily notes and all notes views
-- 🔍 **Powerful Search** - Search across all your notes with highlighted results
-- 🌙 **Dark/Light Theme** - Beautiful themes that match your preference
-- 💾 **Auto-save** - Your notes are automatically saved as you type
-- ⌨️ **Keyboard Shortcuts** - Quick access to common actions
-- 🔄 **Cross-tab Sync** - Changes sync across all your Chrome tabs
+- **Rich Text Editor** - Bold, italic, underline, headings, and lists
+- **Smart Organization** - Daily notes and all notes views
+- **Powerful Search** - Search across all your notes with highlighted results
+- **Dark/Light Theme** - Beautiful themes that match your preference
+- **Auto-save** - Your notes are automatically saved as you type
+- **Keyboard Shortcuts** - Quick access to common actions
+- **Cross-tab Sync** - Changes sync across all your Chrome tabs
 
 ---
 

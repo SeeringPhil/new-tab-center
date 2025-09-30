@@ -1,5 +1,6 @@
 <script lang="ts">
   import { filteredNotes, currentNote, loadNote, deleteNote, stripHtml, formatDateShort } from '../stores/notes';
+  import IconTrash from '~icons/lucide/trash-2';
   
   function selectNote(noteId: string) {
     loadNote(noteId);
@@ -35,7 +36,7 @@
               onclick={(e) => handleDelete(e, note.id)}
               aria-label="Delete note"
             >
-              🗑️
+              <IconTrash class="w-3 h-3" />
             </button>
           </div>
           
